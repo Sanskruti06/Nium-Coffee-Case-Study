@@ -87,6 +87,16 @@ The top three that come out of the scoring:
 | Vietnam | 4.8 | 2.85 | Big producer now building real domestic demand; young, urbanising |
 | United Kingdom | 4.5 | 3.90 | Large, steady, high-spend café culture that's still growing |
 
+On timing: global consumption (excluding the EU aggregate) went from about 103M bags in 2014 to 130M in
+2024, and importantly it jumped +4.8% in the latest year after a flat, price-shocked stretch around
+2019–2023. So the long trend is up and the most recent year re-accelerated — a reasonable moment to enter.
+
+Opportunities and risks fall out of the same numbers. The opportunity is headroom: China drinks 0.26 kg
+a head against 4.6 in the US and 7.4 in Canada, so small habit shifts across a billion-plus people move a
+lot of volume. The risks are the usual ones — importer markets are exposed to global bean prices (the
+dashboard flags each country as a net producer or importer), the mature markets are saturated, and a few
+of the high-growth names (Turkey, Egypt, Russia) carry real macro/FX risk that hits discretionary spend.
+
 ## Visualisation Snapshot (Streamlit App)
 
 <img width="1454" height="788" alt="image" src="https://github.com/user-attachments/assets/18322193-59b2-41d7-9bde-8776f91a64a1" />
