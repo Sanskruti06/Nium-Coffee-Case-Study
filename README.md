@@ -104,7 +104,7 @@ of the high-growth names (Turkey, Egypt, Russia) carry real macro/FX risk that h
 <img width="2894" height="1476" alt="image" src="https://github.com/user-attachments/assets/baece0ea-0783-40fc-9383-3184a779140d" />
 
 
-<img width="2894" height="1476" alt="image" src="https://github.com/user-attachments/assets/6aa19883-528c-4e01-b612-7408d205bf3d" />
+<img width="2912" height="1550" alt="image" src="https://github.com/user-attachments/assets/52104b9b-c5e2-4ee0-8003-0075f9ea204c" />
 
 
 <img width="2880" height="1240" alt="image" src="https://github.com/user-attachments/assets/79bb3959-9141-4120-9f17-777bb3a39e1e" />
