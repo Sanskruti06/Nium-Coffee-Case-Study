@@ -123,7 +123,7 @@ scheme, and some of them collide with ISO in dangerous ways: USDA's `CH` is Chin
 Switzerland; USDA's `GB` is Gabon, not the UK; `ES` is El Salvador, not Spain. If I'd joined on the codes
 naively, I'd have quietly handed China's entire coffee market to Switzerland and lost Japan, the
 Philippines, Korea and Vietnam altogether and the results would have looked perfectly plausible while
-being wrong. I fixed it by writing an explicit USDA→ISO3 crosswalk (`data/crosswalk_usda_iso.csv`) with
+being wrong. I fixed it by writing an explicit USDA→ISO3 crosswalk (data/crosswalk_usda_iso.csv) with
 a note against every tricky code, and by having the pipeline report anything that doesn't match instead
 of silently dropping it. The other wrinkles were smaller: the World Bank file is "wide" with four junk
 header rows and a trailing empty column, and it mixes real countries with regional aggregates.
