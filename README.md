@@ -87,6 +87,21 @@ The top three that come out of the scoring:
 | Vietnam | 4.8 | 2.85 | Big producer now building real domestic demand; young, urbanising |
 | United Kingdom | 4.5 | 3.90 | Large, steady, high-spend café culture that's still growing |
 
+## Visualisation Snapshot (Streamlit App)
+
+<img width="1454" height="788" alt="image" src="https://github.com/user-attachments/assets/18322193-59b2-41d7-9bde-8776f91a64a1" />
+
+
+<img width="2894" height="1476" alt="image" src="https://github.com/user-attachments/assets/baece0ea-0783-40fc-9383-3184a779140d" />
+
+
+<img width="2894" height="1476" alt="image" src="https://github.com/user-attachments/assets/6aa19883-528c-4e01-b612-7408d205bf3d" />
+
+
+<img width="2880" height="1240" alt="image" src="https://github.com/user-attachments/assets/79bb3959-9141-4120-9f17-777bb3a39e1e" />
+
+
+
 ## Reflection
 
 **Key design choices.** The big one was keeping Python thin and doing the real work in SQL, for the
