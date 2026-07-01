@@ -1,0 +1,95 @@
+usda_code,usda_name,iso3,note
+AL,Albania,ALB,
+AG,Algeria,DZA,FIPS AG != ISO
+AO,Angola,AGO,
+AR,Argentina,ARG,
+AM,Armenia,ARM,
+AS,Australia,AUS,FIPS AS != ISO
+DM,Benin,BEN,FIPS DM != ISO
+BL,Bolivia,BOL,
+BK,Bosnia and Herzegovina,BIH,
+BR,Brazil,BRA,
+BY,Burundi,BDI,FIPS BY != ISO
+CM,Cameroon,CMR,
+CA,Canada,CAN,
+CT,Central African Republic,CAF,
+CI,Chile,CHL,FIPS CI != ISO
+CH,China,CHN,FIPS CH = China (ISO CH = Switzerland!)
+CO,Colombia,COL,
+CF,Congo (Brazzaville),COG,
+CG,Congo (Kinshasa),COD,
+CS,Costa Rica,CRI,FIPS CS != ISO
+IV,Cote d'Ivoire,CIV,
+HR,Croatia,HRV,
+CU,Cuba,CUB,
+DR,Dominican Republic,DOM,
+EC,Ecuador,ECU,
+EG,Egypt,EGY,
+ES,El Salvador,SLV,FIPS ES = El Salvador (ISO ES = Spain!)
+EK,Equatorial Guinea,GNQ,
+ET,Ethiopia,ETH,
+E4,European Union,,AGGREGATE - excluded from country-level analysis
+GB,Gabon,GAB,FIPS GB = Gabon (ISO GB = United Kingdom!)
+GG,Georgia,GEO,
+GH,Ghana,GHA,
+GT,Guatemala,GTM,
+GU,Guinea,GIN,
+GY,Guyana,GUY,
+HA,Haiti,HTI,
+HO,Honduras,HND,
+IN,India,IND,
+ID,Indonesia,IDN,
+IR,Iran,IRN,
+JM,Jamaica,JAM,
+JA,Japan,JPN,FIPS JA != ISO
+JO,Jordan,JOR,
+KZ,Kazakhstan,KAZ,
+KE,Kenya,KEN,
+KS,"Korea, South",KOR,FIPS KS != ISO
+KV,Kosovo,XKX,World Bank uses XKX; no official ISO3
+LA,Laos,LAO,
+LI,Liberia,LBR,
+MA,Madagascar,MDG,FIPS MA != ISO
+MI,Malawi,MWI,
+MY,Malaysia,MYS,
+MX,Mexico,MEX,
+MJ,Montenegro,MNE,
+MO,Morocco,MAR,
+NC,New Caledonia,NCL,
+NZ,New Zealand,NZL,
+NU,Nicaragua,NIC,
+NI,Nigeria,NGA,
+MK,North Macedonia,MKD,
+NO,Norway,NOR,
+PN,Panama,PAN,
+PP,Papua New Guinea,PNG,
+PA,Paraguay,PRY,
+PE,Peru,PER,
+RP,Philippines,PHL,FIPS RP != ISO
+RS,Russia,RUS,FIPS RS != ISO
+RW,Rwanda,RWA,
+SA,Saudi Arabia,SAU,
+SG,Senegal,SEN,
+RB,Serbia,SRB,
+SL,Sierra Leone,SLE,
+SN,Singapore,SGP,FIPS SN != ISO
+SF,South Africa,ZAF,FIPS SF != ISO
+CE,Sri Lanka,LKA,FIPS CE != ISO
+SZ,Switzerland,CHE,FIPS SZ = Switzerland (ISO CH)
+TW,Taiwan,TWN,World Bank has no Taiwan population -> dropped in per-capita
+TZ,Tanzania,TZA,
+TH,Thailand,THA,
+TO,Togo,TGO,
+TD,Trinidad and Tobago,TTO,
+TU,Turkey,TUR,FIPS TU != ISO
+UG,Uganda,UGA,
+UP,Ukraine,UKR,FIPS UP != ISO
+UK,United Kingdom,GBR,FIPS UK = UK (ISO GB)
+US,United States,USA,
+UY,Uruguay,URY,
+VE,Venezuela,VEN,
+VM,Vietnam,VNM,FIPS VM != ISO
+YM,Yemen,YEM,
+YE,Yemen (Sanaa),YEM,legacy North Yemen -> folded into YEM
+ZA,Zambia,ZMB,FIPS ZA != ISO
+RH,Zimbabwe,ZWE,FIPS RH != ISO
