@@ -1,7 +1,7 @@
 # Coffee Consumption Around the World
 
-This is my submission for the coffee market case study. The task was to take three public datasets —
-USDA coffee figures, World Bank population, and a country-code reference — join them in PostgreSQL, do
+This is my submission for the coffee market case study. The task was to take three public datasets 
+(USDA coffee figures, World Bank population, and a country-code) reference, join them in PostgreSQL, do
 the analysis in SQL, and put the findings in a dashboard. The business question underneath it all: if
 ACME Baristas is opening a coffee chain in three countries, which three, and is now even a sensible time
 to do it?
@@ -19,8 +19,8 @@ data/        the three raw files, plus a crosswalk I had to build (see below)
 dump/        where the pg_dump lands
 ```
 
-The design idea is simple: Python only cleans and loads. Everything else — the joins, the per-person
-maths, the growth rates, the scoring — happens in SQL, in numbered files you can read top to bottom.
+The design idea is simple: Python only cleans and loads. Everything else like the joins, the per-person
+maths, the growth rates, the scoring happens in SQL, in numbered files you can read top to bottom.
 I did it this way partly because the brief asked for SQL transformation files, but mostly because it's
 how I'd actually build this at work. Keeping the logic in SQL means anyone can rerun it, read it, or
 change one step without touching Python.
@@ -55,16 +55,16 @@ A reviewer can restore that against an empty database with one command:
 createdb coffee_review && psql coffee_review -f dump/coffee_case_study_dump.sql
 ```
 
-## The database, briefly
+## The database
 
-Three schemas, so it's clear what's raw and what's derived:
+Three schemas:
 
 - `staging` — the cleaned CSVs, more or less as-is (`coffee`, `population`, `country_codes`, `coffee_crosswalk`)
 - `core` — the tidy model: `dim_country`, `fact_coffee`, `fact_population`
 - `analytics` — the tables the dashboard and the business questions actually use: `consumption_per_capita`,
   `global_trend`, `market_growth`, `market_score`, plus a couple of validation tables
 
-Population is the natural anchor because it already uses ISO3 codes. The country-code file is the bridge
+Population is the natural anchor because it already uses ISO3 codes. The country code file is the bridge
 that ties everything to a single country identity, and joining through it has a nice side effect: World
 Bank's aggregate rows ("World", "Arab World", income groups) have no real country code, so they simply
 drop out instead of me having to blacklist them by hand.
@@ -81,21 +81,11 @@ misleading here — the biggest markets are the US, Brazil and Japan, but Brazil
 
 The top three that come out of the scoring:
 
-| Market | 2024 consumption (M bags) | 5y growth | kg/person | Why |
-| --- | ---: | ---: | ---: | --- |
-| China | 6.1 | +10.6% | 0.26 | Growing fast off a tiny per-person base — enormous headroom in a huge population |
-| Vietnam | 4.8 | +9.1% | 2.85 | Big producer now building real domestic demand; young, urbanising |
-| United Kingdom | 4.5 | +3.4% | 3.90 | Large, steady, high-spend café culture that's still growing |
-
-On timing: global consumption (excluding the EU aggregate) went from about 103M bags in 2014 to 130M in
-2024, and importantly it jumped +4.8% in the latest year after a flat, price-shocked stretch around
-2019–2023. So the long trend is up and the most recent year re-accelerated — a reasonable moment to enter.
-
-Opportunities and risks fall out of the same numbers. The opportunity is headroom: China drinks 0.26 kg
-a head against 4.6 in the US and 7.4 in Canada, so small habit shifts across a billion-plus people move a
-lot of volume. The risks are the usual ones — importer markets are exposed to global bean prices (the
-dashboard flags each country as a net producer or importer), the mature markets are saturated, and a few
-of the high-growth names (Turkey, Egypt, Russia) carry real macro/FX risk that hits discretionary spend.
+| Market | 2024 consumption (M bags) | kg/person | Why |
+| --- | ---: | ---: | --- |
+| China | 6.1 | 0.26 | Growing fast off a tiny per-person base — enormous headroom in a huge population |
+| Vietnam | 4.8 | 2.85 | Big producer now building real domestic demand; young, urbanising |
+| United Kingdom | 4.5 | 3.90 | Large, steady, high-spend café culture that's still growing |
 
 ## Reflection
 
@@ -108,7 +98,7 @@ whole ballgame.
 scheme, and some of them collide with ISO in dangerous ways: USDA's `CH` is China, but in ISO `CH` is
 Switzerland; USDA's `GB` is Gabon, not the UK; `ES` is El Salvador, not Spain. If I'd joined on the codes
 naively, I'd have quietly handed China's entire coffee market to Switzerland and lost Japan, the
-Philippines, Korea and Vietnam altogether — and the results would have looked perfectly plausible while
+Philippines, Korea and Vietnam altogether and the results would have looked perfectly plausible while
 being wrong. I fixed it by writing an explicit USDA→ISO3 crosswalk (`data/crosswalk_usda_iso.csv`) with
 a note against every tricky code, and by having the pipeline report anything that doesn't match instead
 of silently dropping it. The other wrinkles were smaller: the World Bank file is "wide" with four junk
@@ -122,17 +112,10 @@ World Bank population stops at 2024, and the 2025 coffee file is only partly rep
 year where I have both numbers for everyone. I also left the EU out of the country ranking — USDA reports
 it as one bloc, not as member states, so it can't fairly sit in a list of individual countries.
 
-**What I'd do with more time.** Bring in income and price data so the score reflects spending power, not
-just cups. Layer in something on café or competitor density to make it about *where within* a market you'd
-open, not just which market. Find a second source for EU member-level consumption so the biggest bloc
-isn't a blind spot. And I'd move the SQL into dbt with proper tests, plus a small CI step that restores
-the dump and checks a few numbers, so the whole thing stays honest as the data updates.
+**What I'd do with more time.** Bring in income and price data. Layer in something on cafe or competitor density to make it about *where within* a market you'd open, not just which market. Find a second source for EU member-level consumption so the biggest bloc isn't a blind spot. 
 
 **Data that would have helped.** Out-of-home versus at-home consumption, retail coffee prices,
 disposable income, urbanisation rates, tourism, and existing chain footprints per capita. Any of those
 would turn "big and growing" into a sharper "big, growing, and worth the rent."
 
 ---
-
-Data sources and exact download steps are in [data/PROVENANCE.md](data/PROVENANCE.md). If you just want
-the project explained in plain English, there's a walkthrough in [EXPLAINER.md](EXPLAINER.md).
